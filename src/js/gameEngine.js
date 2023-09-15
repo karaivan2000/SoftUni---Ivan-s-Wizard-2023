@@ -1,7 +1,7 @@
 function start(state, game) {
     game.createWizard(state.wizard);
 
-    window.requestAnimationFrame(timestamp => gameLoop(state, game, timestamp));
+    window.requestAnimationFrame(gameLoop.bind(null, state, game));
 }
 
 function gameLoop(state, game, timestamp) {
@@ -9,6 +9,12 @@ function gameLoop(state, game, timestamp) {
     const { wizardElement } = game;
 
     modifyWizardPosition(state, game);
+
+    if (state.keys.Space) {
+        game.wizardElement.style.backgroundImage = `url("/src/images/images/wizard-fire.png")`;
+    } else {
+        game.wizardElement.style.backgroundImage = `url("/src/images/images/wizard.png")`;
+    }
 
     // Spawn bugs 
     if (timestamp > state.bugStats.nextSpawnTimestamp) {
