@@ -24,6 +24,7 @@ function gameLoop(state, game, timestamp) {
         state.bugStats.nextSpawnTimestamp = timestamp + Math.random() * state.bugStats.maxSpawnInterval;
     }
 
+
     //Render bugs
     document.querySelectorAll(`.bug`).forEach(bug => {
         let posX = parseInt(bug.style.left);
@@ -34,6 +35,18 @@ function gameLoop(state, game, timestamp) {
             bug.remove();
         }
        
+    });
+
+    // Render fireballs
+    document.querySelectorAll(`.fireball`).forEach(fireball => {
+        let posX = parseInt(fireball.style.left);
+
+        if (posX > game.gameScreen.offsetWidth) {
+            fireball.remove();
+        } else {
+            fireball.style.left = posX + state.fireball.speed + `px`;
+        }
+        
     });
 
     //Render
