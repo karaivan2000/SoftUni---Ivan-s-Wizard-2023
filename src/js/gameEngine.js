@@ -12,6 +12,8 @@ function gameLoop(state, game, timestamp) {
 
     if (state.keys.Space) {
         game.wizardElement.style.backgroundImage = `url("/src/images/images/wizard-fire.png")`;
+
+        game.createFireball(wizard, state.fireball);
     } else {
         game.wizardElement.style.backgroundImage = `url("/src/images/images/wizard.png")`;
     }
