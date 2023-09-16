@@ -4,6 +4,10 @@ function initState(){
 
     const state = {
         player: `Pesho`,
+        gameOver: false,
+        score: 0,
+        scoreRate: 1,
+        killScore: 1000,
         wizard: {
             width: 82,
             height: 100, 
@@ -23,7 +27,7 @@ function initState(){
             height: 20,
             speed: 12,
             nextSpawnTimestamp: 0,
-            fireRate: 300,
+            fireRate: 500,
         },
         keys: {
             KeyA: false,
